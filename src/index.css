@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@import 'tailwindcss';
+
+@theme inline {
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border-color);
+}
+
+:root {
+  --bg-base: #080B12;
+  --bg-surface: #0D111A;
+  --bg-card: #111722;
+  --bg-card-hover: #151D2A;
+
+  --brand: #FF7A3D;
+  --brand-light: #FF9A5C;
+
+  --text-primary: #F5F1EA;
+  --text-secondary: #9BA3B0;
+  --text-muted: #5E6673;
+
+  --border-color: #252D3A;
+
+  --radius: 10px;
+}
+
+.light {
+  --bg-base: #F8F6F2;
+  --bg-surface: #EDEAE3;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F3F0EC;
+
+  --brand: #FF7A3D;
+  --brand-light: #E86832;
+
+  --text-primary: #111420;
+  --text-secondary: #4A5568;
+  --text-muted: #9AA0AB;
+
+  --border-color: #D9D3CA;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.hero-action {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.hero-action::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 80%
+  );
+
+  transform: translateX(-120%);
+  transition: transform 500ms ease;
+  pointer-events: none;
+}
+
+.hero-action:hover::after {
+  transform: translateX(120%);
+}
+
+.hero-action:hover {
+  transform: translateY(-3px) scale(1.025);
+}
+
+.hero-action:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.hero-action-primary {
+  background: var(--brand);
+  color: #fff;
+  border: 1px solid var(--brand);
+
+  box-shadow:
+    0 4px 15px rgba(255, 122, 61, 0.08);
+}
+
+.hero-action-primary:hover {
+  background: var(--brand-light);
+  box-shadow:
+    0 12px 35px rgba(255, 122, 61, 0.35);
+}
+
+.hero-action-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.hero-action-secondary:hover {
+  background: rgba(255, 122, 61, 0.08);
+  color: var(--brand);
+  border-color: var(--brand);
+
+  box-shadow:
+    0 8px 28px rgba(255, 122, 61, 0.15);
+}
+
+.hero-action {
+  position: relative;
+  z-index: 50;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.hero-action-primary {
+  background: var(--brand);
+  color: #fff;
+  border: 1px solid var(--brand);
+}
+
+.hero-action-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 122, 61, 0.3);
+}
+
+.hero-action-primary:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.hero-action-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.hero-action-secondary:hover {
+  transform: translateY(-3px);
+  background: var(--bg-card-hover);
+  border-color: var(--brand);
+  color: var(--brand);
+  box-shadow: 0 10px 25px rgba(255, 122, 61, 0.12);
+}
+
+.hero-action-secondary:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.footer-link {
+
+  width: fit-content;
+align-self: flex-start;
+
+  color: var(--text-secondary);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--brand);
+}
+
+.footer-category {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.footer-category:hover {
+  color: var(--brand);
+  border-color: var(--brand);
+  background: rgba(255, 122, 61, 0.06);
+}
+
+.nav-link:hover {
+  color: var(--brand) !important;
+}
