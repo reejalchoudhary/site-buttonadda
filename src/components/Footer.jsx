@@ -178,7 +178,7 @@ export default function Footer({ onNavigate }) {
               •
             </span>
 
-            <span>v1.0.0</span>
+            <span>v1.0.2</span>
           </div>
 
           <p
