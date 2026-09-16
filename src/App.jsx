@@ -7,6 +7,7 @@ import ExplorerPage from "./components/ExplorerPage";
 import ButtonDetailPage from "./components/ButtonDetailPage";
 import InstallationPage from "./components/InstallationPage";
 import DocsPage from "./components/DocsPage";
+import SplashScreen from "./components/SplashScreen";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -16,9 +17,10 @@ export default function App() {
 
   const [theme, setTheme] = useState("dark");
 
-  const [searchQuery, setSearchQuery] =
-    useState("");
-
+  const [searchQuery, setSearchQuery] = useState("");
+  
+  const [showSplash, setShowSplash] = useState(true);
+  
   const navigate = (page) => {
     setCurrentPage(page);
 
@@ -111,11 +113,20 @@ export default function App() {
     }
   };
 
-  const showFooter =
-    !selectedButton &&
-    currentPage !== "docs";
+const showFooter =
+  !selectedButton &&
+  currentPage !== "docs";
 
-  return (
+return (
+  <>
+    {showSplash && (
+      <SplashScreen
+        onComplete={() => {
+          setShowSplash(false);
+        }}
+      />
+    )}
+
     <div
       className="min-h-screen flex flex-col"
       style={{
@@ -123,7 +134,6 @@ export default function App() {
         color: "var(--text-primary)",
       }}
     >
-
       <Navbar
         currentPage={currentPage}
         onNavigate={navigate}
@@ -142,5 +152,6 @@ export default function App() {
         />
       )}
     </div>
-  );
+  </>
+);
 }
