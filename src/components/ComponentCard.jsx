@@ -233,7 +233,7 @@ useEffect(() => {
         <div className="flex items-start justify-between gap-2 mb-1.5">
 
           <span
-            className="font-mono text-sm font-500"
+            className="font-mono text-sm font-500 min-w-0 flex-1 break-words"
             style={{
               color: "var(--text-primary)",
             }}

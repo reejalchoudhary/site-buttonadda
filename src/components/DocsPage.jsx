@@ -30,17 +30,23 @@ const content = {
   installation: {
     title: "Installation",
     body: (
-      <div className="space-y-6">
-        <p style={{ color: "var(--text-secondary)" }}>
+      <div className="space-y-6 min-w-0">
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           ButtonAdda is a zero-dependency React library of 49+ animated
           button components. Install it via your preferred package manager.
         </p>
 
-        <CodeBlock
-          code="npm install button-adda"
-          language="sh"
-        />
+        <div className="w-full min-w-0 overflow-x-auto">
+          <CodeBlock
+            code="npm install button-adda"
+            language="sh"
+          />
+        </div>
 
+        <div className="w-full min-w-0 overflow-x-auto">
           <CodeBlock
             code={`import { AuroraButton } from "button-adda";
 
@@ -48,6 +54,7 @@ const content = {
 import * as ButtonAdda from "button-adda";`}
             language="jsx"
           />
+        </div>
       </div>
     ),
   },
@@ -55,13 +62,17 @@ import * as ButtonAdda from "button-adda";`}
   quickstart: {
     title: "Quick Start",
     body: (
-      <div className="space-y-6">
-        <p style={{ color: "var(--text-secondary)" }}>
+      <div className="space-y-6 min-w-0">
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           Import any component by name, then customize it with props.
         </p>
 
-        <CodeBlock
-          code={`import { AuroraButton } from "butto-nadda";
+        <div className="w-full min-w-0 overflow-x-auto">
+          <CodeBlock
+            code={`import { AuroraButton } from "butto-nadda";
 
 function App() {
   return (
@@ -71,10 +82,14 @@ function App() {
     </AuroraButton>
   );
 }`}
-          language="JSX"
-        />
+            language="JSX"
+          />
+        </div>
 
-        <p style={{ color: "var(--text-secondary)" }}>
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           All components are individually tree-shakeable — only the code you
           use is bundled.
         </p>
@@ -85,8 +100,11 @@ function App() {
   explorer: {
     title: "Button Explorer",
     body: (
-      <div className="space-y-4">
-        <p style={{ color: "var(--text-secondary)" }}>
+      <div className="space-y-4 min-w-0">
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           The Button Explorer lets you browse all 49+ components by category
           or search by name.
         </p>
@@ -102,13 +120,18 @@ function App() {
           ].map((item, index) => (
             <li
               key={index}
-              className="flex items-start gap-2"
+              className="flex items-start gap-2 min-w-0"
             >
-              <span style={{ color: "var(--brand)" }}>
+              <span
+                className="flex-shrink-0"
+                style={{ color: "var(--brand)" }}
+              >
                 →
               </span>
 
-              {item}
+              <span className="min-w-0 break-words">
+                {item}
+              </span>
             </li>
           ))}
         </ul>
@@ -119,14 +142,17 @@ function App() {
   details: {
     title: "Button Details",
     body: (
-      <div className="space-y-4">
-        <p style={{ color: "var(--text-secondary)" }}>
+      <div className="space-y-4 min-w-0">
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           Each component detail page contains a live preview, customization
           controls, generated code, and a full props reference.
         </p>
 
         <div
-          className="space-y-2 text-sm"
+          className="space-y-2 text-sm min-w-0"
           style={{ color: "var(--text-secondary)" }}
         >
           {[
@@ -149,7 +175,7 @@ function App() {
           ].map(({ label, desc }) => (
             <div
               key={label}
-              className="p-3 rounded-lg"
+              className="p-3 rounded-lg min-w-0"
               style={{
                 background: "var(--bg-surface)",
                 border: "1px solid var(--border-color)",
@@ -162,7 +188,7 @@ function App() {
                 {label}
               </span>
 
-              <p className="mt-1">
+              <p className="mt-1 break-words">
                 {desc}
               </p>
             </div>
@@ -175,19 +201,22 @@ function App() {
   props: {
     title: "Props",
     body: (
-      <div className="space-y-6">
-        <p style={{ color: "var(--text-secondary)" }}>
+      <div className="space-y-6 min-w-0">
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           All ButtonAdda components share a common set of base props.
           Individual components may expose additional props.
         </p>
 
         <div
-          className="rounded-xl overflow-hidden"
+          className="rounded-xl overflow-x-auto max-w-full"
           style={{
             border: "1px solid var(--border-color)",
           }}
         >
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[600px] text-sm">
             <thead>
               <tr
                 style={{
@@ -321,14 +350,18 @@ function App() {
   styling: {
     title: "Styling",
     body: (
-      <div className="space-y-6">
-        <p style={{ color: "var(--text-secondary)" }}>
+      <div className="space-y-6 min-w-0">
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           ButtonAdda components come with built-in styling and animations.
           Customize their appearance directly using component props.
         </p>
 
-<CodeBlock
-  code={`// Customize ButtonAdda components with props
+        <div className="w-full min-w-0 overflow-x-auto">
+          <CodeBlock
+            code={`// Customize ButtonAdda components with props
 
 color="#FF7A3D"
 textColor="#FFFFFF"
@@ -338,17 +371,21 @@ radius={12}
 intensity={1.2}
 
 // No additional CSS required`}
-  language="JSX"
-  label="Styling"
-/>
+            language="JSX"
+            label="Styling"
+          />
+        </div>
 
-        <p style={{ color: "var(--text-secondary)" }}>
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           Customize colors, sizes, radius, effects, and other visual properties
           directly through the component's props.
         </p>
 
         <div
-          className="p-4 rounded-xl text-sm"
+          className="p-4 rounded-xl text-sm min-w-0"
           style={{
             background: "var(--bg-surface)",
             border: "1px solid rgba(255,122,61,0.2)",
@@ -362,8 +399,10 @@ intensity={1.2}
             NOTE
           </span>
 
-          Do not override internal class names — they are considered private
-          API and may change between minor versions.
+          <span className="break-words">
+            Do not override internal class names — they are considered private
+            API and may change between minor versions.
+          </span>
         </div>
       </div>
     ),
@@ -372,24 +411,29 @@ intensity={1.2}
   events: {
     title: "Events",
     body: (
-      <div className="space-y-6">
-        <p style={{ color: "var(--text-secondary)" }}>
+      <div className="space-y-6 min-w-0">
+        <p
+          className="leading-relaxed break-words"
+          style={{ color: "var(--text-secondary)" }}
+        >
           Every ButtonAdda component forwards standard React event handlers.
           The most common are listed below.
         </p>
 
-        <CodeBlock
-          code={`<FireButton
+        <div className="w-full min-w-0 overflow-x-auto">
+          <CodeBlock
+            code={`<FireButton
   onClick={() => console.log("clicked")}
   onMouseEnter={() => console.log("hovered")}
   onFocus={() => console.log("focused")}
 >
   Click Me
 </FireButton>`}
-          language="JSX"
-        />
+            language="JSX"
+          />
+        </div>
 
-        <div className="space-y-2 text-sm">
+        <div className="space-y-2 text-sm min-w-0">
           {[
             {
               name: "onClick",
@@ -414,7 +458,7 @@ intensity={1.2}
           ].map(({ name, desc }) => (
             <div
               key={name}
-              className="flex items-start gap-3 p-3 rounded-lg"
+              className="flex items-start gap-3 p-3 rounded-lg min-w-0"
               style={{
                 background: "var(--bg-surface)",
                 border: "1px solid var(--border-color)",
@@ -430,7 +474,7 @@ intensity={1.2}
               </span>
 
               <span
-                className="text-xs"
+                className="text-xs min-w-0 break-words"
                 style={{
                   color: "var(--text-secondary)",
                 }}
@@ -456,12 +500,11 @@ export default function DocsPage({ onNavigate }) {
 
   return (
     <div
-      className="min-h-screen flex"
+      className="min-h-screen w-full min-w-0 flex overflow-x-hidden"
       style={{
         background: "var(--bg-base)",
       }}
     >
-
       <button
         className="fixed bottom-6 right-6 z-50 md:hidden w-12 h-12 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
         style={{
@@ -502,7 +545,7 @@ export default function DocsPage({ onNavigate }) {
       </button>
 
       <aside
-        className={`fixed md:sticky top-0 md:top-16 h-screen md:h-[calc(100vh-4rem)] z-40 md:z-auto transition-transform duration-300 flex-shrink-0 w-64 overflow-y-auto py-8 px-4 ${
+        className={`fixed md:fixed top-0 md:top-0 h-screen md:h-screen z-40 md:z-auto transition-transform duration-300 flex-shrink-0 w-64 overflow-y-auto py-8 px-4 ${
           sidebarOpen
             ? "translate-x-0"
             : "-translate-x-full md:translate-x-0"
@@ -569,7 +612,7 @@ export default function DocsPage({ onNavigate }) {
         ))}
       </aside>
 
-      <main className="flex-1 py-16 px-8 max-w-3xl">
+      <main className="flex-1 min-w-0 w-full py-10 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 max-w-3xl md:ml-64 overflow-x-hidden">
         <div
           className="font-mono text-xs uppercase tracking-widest mb-3"
           style={{
@@ -587,7 +630,7 @@ export default function DocsPage({ onNavigate }) {
         </div>
 
         <h1
-          className="font-display font-700 text-3xl md:text-4xl mb-8"
+          className="font-display font-700 text-3xl sm:text-4xl mb-6 sm:mb-8 break-words"
           style={{
             color: "var(--text-primary)",
           }}
@@ -595,7 +638,9 @@ export default function DocsPage({ onNavigate }) {
           {current.title}
         </h1>
 
-        {current.body}
+        <div className="w-full min-w-0">
+          {current.body}
+        </div>
       </main>
     </div>
   );

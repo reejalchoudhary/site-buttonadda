@@ -23,10 +23,11 @@ export default function HomePage({ onNavigate }) {
   };
 
   return (
-    <div style={{ background: "var(--bg-base)" }}>
-
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 overflow-hidden">
-
+    <div
+      className="w-full min-w-0 overflow-x-hidden"
+      style={{ background: "var(--bg-base)" }}
+    >
+      <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-6 pt-20 sm:pt-20 pb-12 sm:pb-16 overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -45,16 +46,15 @@ export default function HomePage({ onNavigate }) {
           }}
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-
-          <div className="inline-flex items-center gap-2 mb-8">
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center min-w-0">
+          <div className="inline-flex items-center gap-2 mb-6 sm:mb-8 max-w-full">
             <span
-              className="w-1.5 h-1.5 rounded-full"
+              className="w-1.5 h-1.5 rounded-full flex-shrink-0"
               style={{ background: "#10B981" }}
             />
 
             <span
-              className="font-mono text-xs uppercase tracking-widest"
+              className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-widest"
               style={{ color: "var(--text-muted)" }}
             >
               Open Source • React Component Library
@@ -63,14 +63,14 @@ export default function HomePage({ onNavigate }) {
 
           <h1 className="font-display font-800 leading-none mb-4">
             <span
-              className="block text-5xl md:text-7xl lg:text-8xl tracking-tight"
+              className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight"
               style={{ color: "var(--text-primary)" }}
             >
               BUTTONS THAT
             </span>
 
             <span
-              className="block text-5xl md:text-7xl lg:text-8xl tracking-tight"
+              className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight"
               style={{ color: "var(--brand)" }}
             >
               DO MORE.
@@ -78,56 +78,56 @@ export default function HomePage({ onNavigate }) {
           </h1>
 
           <p
-            className="text-lg md:text-xl mb-3 font-display"
+            className="text-base sm:text-lg md:text-xl mb-3 font-display px-2 sm:px-0"
             style={{ color: "var(--text-secondary)" }}
           >
             49+ animated, interactive and customizable buttons for React.
           </p>
 
           <p
-            className="text-base mb-10"
+            className="text-sm sm:text-base mb-8 sm:mb-10 px-3 sm:px-0"
             style={{
               color: "var(--text-muted)",
               maxWidth: "520px",
-              margin: "0 auto 2.5rem",
+              margin: "0 auto 2rem",
             }}
           >
             Drop expressive interactions into your interface without building
             every animation from scratch.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-          <button
-            onClick={() => onNavigate("explorer")}
-            className="hero-action hero-action-primary px-8 py-3.5 rounded-xl font-display font-600 text-sm"
-          >
-            EXPLORE BUTTONS →
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full">
+            <button
+              onClick={() => onNavigate("explorer")}
+              className="hero-action hero-action-primary px-6 sm:px-8 py-3.5 rounded-xl font-display font-600 text-sm"
+            >
+              EXPLORE BUTTONS →
+            </button>
 
             <button
               onClick={() => onNavigate("installation")}
-              className="hero-action hero-action-secondary px-8 py-3.5 rounded-xl font-display font-600 text-sm"
+              className="hero-action hero-action-secondary px-6 sm:px-8 py-3.5 rounded-xl font-display font-600 text-sm"
             >
               GET STARTED
             </button>
           </div>
 
           <div
-            className="inline-flex items-center gap-4 px-5 py-3 rounded-xl"
+            className="w-full max-w-full sm:w-auto inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 px-3 sm:px-5 py-3 rounded-xl"
             style={{
               background: "var(--bg-surface)",
               border: "1px solid var(--border-color)",
             }}
           >
             <span
-              className="font-mono text-sm"
+              className="font-mono text-sm flex-shrink-0"
               style={{ color: "var(--text-muted)" }}
             >
               $
             </span>
 
             <span
-              className="font-mono text-sm"
+              className="font-mono text-xs sm:text-sm break-all"
               style={{ color: "var(--text-primary)" }}
             >
               npm install button-adda
@@ -135,16 +135,14 @@ export default function HomePage({ onNavigate }) {
 
             <button
               onClick={handleCopyInstall}
-              className="flex items-center gap-1.5 font-mono text-xs px-2.5 py-1 rounded-md transition-all cursor-pointer"
+              className="flex items-center gap-1.5 font-mono text-[10px] sm:text-xs px-2.5 py-1 rounded-md transition-all cursor-pointer flex-shrink-0"
               style={{
                 background: copied
                   ? "rgba(16,185,129,0.15)"
                   : "var(--bg-card)",
-
                 color: copied
                   ? "#10B981"
                   : "var(--text-muted)",
-
                 border: `1px solid ${
                   copied
                     ? "rgba(16,185,129,0.3)"
@@ -195,15 +193,14 @@ export default function HomePage({ onNavigate }) {
           </div>
         </div>
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto mt-16">
+        <div className="relative z-10 w-full max-w-5xl mx-auto mt-10 sm:mt-16 min-w-0">
           <div
-            className="rounded-2xl p-8 relative overflow-hidden"
+            className="rounded-2xl p-4 sm:p-6 md:p-8 relative overflow-hidden"
             style={{
               background: "var(--bg-surface)",
               border: "1px solid var(--border-color)",
             }}
           >
-
             <div
               className="absolute top-0 left-0 right-0 h-px"
               style={{
@@ -212,21 +209,21 @@ export default function HomePage({ onNavigate }) {
               }}
             />
 
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6 min-w-0">
               <span
-                className="w-2 h-2 rounded-full"
+                className="w-2 h-2 rounded-full flex-shrink-0"
                 style={{ background: "var(--brand)" }}
               />
 
               <span
-                className="font-mono text-xs uppercase tracking-widest"
+                className="font-mono text-[10px] sm:text-xs uppercase tracking-widest truncate"
                 style={{ color: "var(--text-muted)" }}
               >
                 Live Component Preview
               </span>
 
               <span
-                className="ml-auto font-mono text-xs px-2 py-1 rounded"
+                className="ml-auto font-mono text-[10px] sm:text-xs px-2 py-1 rounded flex-shrink-0"
                 style={{
                   background: "var(--bg-card)",
                   color: "var(--text-muted)",
@@ -237,14 +234,14 @@ export default function HomePage({ onNavigate }) {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               {previewButtons.map((btn) => {
                 const PreviewComponent = ButtonAdda[btn.name];
 
                 return (
                   <div
                     key={btn.name}
-                    className="rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-300 cursor-pointer group"
+                    className="rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center gap-3 transition-all duration-300 cursor-pointer group min-w-0"
                     style={{
                       background: "var(--bg-card)",
                       border: "1px solid var(--border-color)",
@@ -254,7 +251,7 @@ export default function HomePage({ onNavigate }) {
                     onClick={() => onNavigate("explorer")}
                   >
                     <div
-                      className="relative flex items-center justify-center w-full"
+                      className="relative flex items-center justify-center w-full min-w-0"
                       style={{
                         minHeight: "82px",
                         overflow: "hidden",
@@ -262,7 +259,7 @@ export default function HomePage({ onNavigate }) {
                     >
                       {PreviewComponent ? (
                         <div
-                          className="flex items-center justify-center"
+                          className="flex items-center justify-center max-w-full"
                           style={{
                             transform: "scale(0.72)",
                             transformOrigin: "center",
@@ -274,7 +271,7 @@ export default function HomePage({ onNavigate }) {
                         </div>
                       ) : (
                         <div
-                          className="font-mono text-xs"
+                          className="font-mono text-xs text-center"
                           style={{
                             color: btn.color,
                           }}
@@ -284,9 +281,9 @@ export default function HomePage({ onNavigate }) {
                       )}
                     </div>
 
-                    <div className="text-center">
+                    <div className="text-center min-w-0 max-w-full">
                       <div
-                        className="font-mono text-xs font-500"
+                        className="font-mono text-xs font-500 truncate"
                         style={{
                           color: "var(--text-primary)",
                         }}
@@ -319,7 +316,7 @@ export default function HomePage({ onNavigate }) {
             </div>
 
             <div
-              className="absolute bottom-4 right-6 font-mono text-xs"
+              className="mt-4 text-right font-mono text-xs"
               style={{
                 color: "var(--text-muted)",
               }}
@@ -336,7 +333,7 @@ export default function HomePage({ onNavigate }) {
           borderBottom: "1px solid var(--border-color)",
         }}
       >
-        <div className="max-w-5xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-12 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
           {[
             { val: "49+", label: "Components" },
             { val: "0", label: "Dependencies" },
@@ -345,14 +342,14 @@ export default function HomePage({ onNavigate }) {
           ].map(({ val, label }) => (
             <div key={label}>
               <div
-                className="font-display font-700 text-3xl"
+                className="font-display font-700 text-2xl sm:text-3xl"
                 style={{ color: "var(--brand)" }}
               >
                 {val}
               </div>
 
               <div
-                className="font-mono text-xs mt-1 uppercase tracking-widest"
+                className="font-mono text-[10px] sm:text-xs mt-1 uppercase tracking-widest"
                 style={{ color: "var(--text-muted)" }}
               >
                 {label}
@@ -362,8 +359,8 @@ export default function HomePage({ onNavigate }) {
         </div>
       </section>
 
-      <section className="py-24 px-6 max-w-5xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-6">
+      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {[
             {
               icon: (
@@ -425,7 +422,7 @@ export default function HomePage({ onNavigate }) {
           ].map(({ icon, title, desc }) => (
             <div
               key={title}
-              className="rounded-xl p-6 transition-all duration-300"
+              className="rounded-xl p-5 sm:p-6 transition-all duration-300 min-w-0"
               style={{
                 background: "var(--bg-card)",
                 border: "1px solid var(--border-color)",
@@ -464,13 +461,12 @@ export default function HomePage({ onNavigate }) {
       </section>
 
       <section
-        className="py-20 px-6 text-center"
+        className="py-16 sm:py-20 px-4 sm:px-6 text-center"
         style={{
           borderTop: "1px solid var(--border-color)",
         }}
       >
         <div className="max-w-xl mx-auto">
-
           <div
             className="font-mono text-xs uppercase tracking-widest mb-4"
             style={{
@@ -481,7 +477,7 @@ export default function HomePage({ onNavigate }) {
           </div>
 
           <h2
-            className="font-display font-700 text-3xl md:text-4xl mb-4 leading-tight"
+            className="font-display font-700 text-2xl sm:text-3xl md:text-4xl mb-4 leading-tight"
             style={{
               color: "var(--text-primary)",
             }}
@@ -490,7 +486,7 @@ export default function HomePage({ onNavigate }) {
           </h2>
 
           <p
-            className="mb-8 text-sm"
+            className="mb-8 text-sm px-2"
             style={{
               color: "var(--text-secondary)",
             }}
@@ -499,12 +495,12 @@ export default function HomePage({ onNavigate }) {
             project.
           </p>
 
-            <button
-              onClick={() => onNavigate("explorer")}
-              className="hero-action hero-action-primary px-8 py-3.5 rounded-xl font-display font-600 text-sm"
-            >
-              EXPLORE ALL 49 BUTTONS →
-            </button>
+          <button
+            onClick={() => onNavigate("explorer")}
+            className="hero-action hero-action-primary w-full sm:w-auto px-6 sm:px-8 py-3.5 rounded-xl font-display font-600 text-sm"
+          >
+            EXPLORE ALL 49 BUTTONS →
+          </button>
         </div>
       </section>
     </div>

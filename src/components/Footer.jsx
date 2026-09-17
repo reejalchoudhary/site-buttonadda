@@ -6,10 +6,8 @@ export default function Footer({ onNavigate }) {
         borderTop: "1px solid var(--border-color)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-12">
-
-        <div className="grid md:grid-cols-3 gap-10 mb-10">
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-8 sm:mb-10">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <img
@@ -50,11 +48,10 @@ export default function Footer({ onNavigate }) {
             </div>
 
             <div className="flex flex-col gap-2">
-
               <a
                 href="https://github.com/reejalchoudhary/button-adda"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="footer-link text-sm flex items-center gap-1.5"
               >
                 GitHub
@@ -75,8 +72,8 @@ export default function Footer({ onNavigate }) {
 
               <a
                 href="https://www.npmjs.com/package/button-adda"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="footer-link text-sm flex items-center gap-1.5"
               >
                 NPM Package
@@ -90,9 +87,7 @@ export default function Footer({ onNavigate }) {
                   strokeWidth="2"
                 >
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-
                   <polyline points="15 3 21 3 21 9" />
-
                   <line
                     x1="10"
                     y1="14"
@@ -110,9 +105,7 @@ export default function Footer({ onNavigate }) {
               </button>
 
               <button
-                onClick={() =>
-                  onNavigate("installation")
-                }
+                onClick={() => onNavigate("installation")}
                 className="footer-link text-sm text-left cursor-pointer"
               >
                 Installation
@@ -130,7 +123,7 @@ export default function Footer({ onNavigate }) {
               Categories
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 max-w-full">
               {[
                 "GLOW",
                 "INTERACTIVE",
@@ -141,9 +134,7 @@ export default function Footer({ onNavigate }) {
               ].map((category) => (
                 <button
                   key={category}
-                  onClick={() =>
-                    onNavigate("explorer")
-                  }
+                  onClick={() => onNavigate("explorer")}
                   className="footer-category font-mono text-xs px-2.5 py-1 rounded cursor-pointer"
                 >
                   {category}
@@ -154,27 +145,36 @@ export default function Footer({ onNavigate }) {
         </div>
 
         <div
-          className="flex flex-col md:flex-row items-center justify-between gap-3 pt-8"
+          className="flex flex-col md:flex-row items-center md:items-center justify-between gap-4 pt-6 sm:pt-8"
           style={{
-            borderTop:
-              "1px solid var(--border-color)",
+            borderTop: "1px solid var(--border-color)",
           }}
         >
           <div
-            className="flex items-center gap-4 font-mono text-xs"
+            className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2 font-mono text-xs text-center md:text-left"
             style={{
               color: "var(--text-muted)",
             }}
           >
             <span>MIT License</span>
 
-            <span style={{ opacity: 0.4 }}>
+            <span
+              className="hidden sm:inline"
+              style={{
+                opacity: 0.4,
+              }}
+            >
               •
             </span>
 
             <span>Open Source</span>
 
-            <span style={{ opacity: 0.4 }}>
+            <span
+              className="hidden sm:inline"
+              style={{
+                opacity: 0.4,
+              }}
+            >
               •
             </span>
 
@@ -182,12 +182,12 @@ export default function Footer({ onNavigate }) {
           </div>
 
           <p
-            className="font-mono text-xs"
+            className="font-mono text-xs text-center md:text-right"
             style={{
               color: "var(--text-muted)",
             }}
           >
-           Made for developers who love good UI.
+            Made for developers who love good UI.
           </p>
         </div>
       </div>

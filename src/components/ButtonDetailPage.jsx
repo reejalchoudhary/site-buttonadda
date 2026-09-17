@@ -4,12 +4,12 @@ import CodeBlock from "./CodeBlock";
 import ComponentCard from "./ComponentCard";
 
 import * as ButtonAdda from "button-adda";
+
 export default function ButtonDetailPage({
   button,
   onBack,
   onSelect,
 }) {
-
   const [color, setColor] = useState(
     button?.color || "#8b5cf6"
   );
@@ -46,7 +46,9 @@ export default function ButtonDetailPage({
   const hasProp = (propName) => {
     return (
       Array.isArray(button?.props) &&
-      button.props.some((prop) => prop.name === propName)
+      button.props.some(
+        (prop) => prop.name === propName
+      )
     );
   };
 
@@ -183,20 +185,21 @@ function App() {
   if (!button) {
     return (
       <div
-        className="min-h-screen flex items-center justify-center px-6"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6"
         style={{
           background: "var(--bg-base)",
           color: "var(--text-primary)",
         }}
       >
         <div className="text-center">
-          <h2 className="font-mono text-lg mb-3">
+          <h2 className="font-mono text-base sm:text-lg mb-3">
             Button not found
           </h2>
 
           <button
+            type="button"
             onClick={onBack}
-            className="font-mono text-sm"
+            className="font-mono text-xs sm:text-sm cursor-pointer"
             style={{
               color: "var(--brand)",
             }}
@@ -210,17 +213,17 @@ function App() {
 
   return (
     <div
-      className="min-h-screen py-12 px-6"
+      className="min-h-screen py-8 sm:py-10 lg:py-12 px-4 sm:px-6"
       style={{
         background: "var(--bg-base)",
       }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto w-full">
 
         <button
           type="button"
           onClick={onBack}
-          className="flex items-center gap-2 mb-8 font-mono text-sm transition-colors cursor-pointer"
+          className="flex items-center gap-2 mb-6 sm:mb-8 font-mono text-xs sm:text-sm transition-colors cursor-pointer"
           style={{
             color: "var(--text-muted)",
           }}
@@ -247,12 +250,13 @@ function App() {
           BACK TO BUTTONS
         </button>
 
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-10">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-8 sm:mb-10">
+          <div className="min-w-0 w-full">
+
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
 
               <h1
-                className="font-display font-700 text-3xl md:text-4xl"
+                className="font-display font-700 text-2xl sm:text-3xl md:text-4xl break-words"
                 style={{
                   color: "var(--text-primary)",
                 }}
@@ -261,7 +265,7 @@ function App() {
               </h1>
 
               <span
-                className="font-mono text-xs px-2 py-1 rounded"
+                className="font-mono text-[10px] sm:text-xs px-2 py-1 rounded shrink-0"
                 style={{
                   background: `${catColor}15`,
                   color: catColor,
@@ -274,21 +278,23 @@ function App() {
             </div>
 
             <p
+              className="text-sm sm:text-base leading-relaxed"
               style={{
                 color: "var(--text-secondary)",
               }}
             >
               {button.description}
             </p>
+
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
 
-          <div className="lg:col-span-3 flex flex-col gap-6">
+          <div className="contents lg:flex lg:flex-col lg:gap-5 lg:col-span-3">
 
             <div
-              className="rounded-xl overflow-hidden"
+              className="order-1 lg:order-none rounded-xl overflow-hidden w-full"
               style={{
                 border:
                   "1px solid var(--border-color)",
@@ -296,7 +302,7 @@ function App() {
             >
 
               <div
-                className="flex flex-wrap items-center justify-between gap-3 px-4 py-3"
+                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-3 sm:px-4 py-3"
                 style={{
                   borderBottom:
                     "1px solid var(--border-color)",
@@ -305,7 +311,7 @@ function App() {
                 }}
               >
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
 
                   <span
                     className="w-1.5 h-1.5 rounded-full"
@@ -315,7 +321,7 @@ function App() {
                   />
 
                   <span
-                    className="font-mono text-xs uppercase tracking-wider"
+                    className="font-mono text-[10px] sm:text-xs uppercase tracking-wider"
                     style={{
                       color: "var(--text-muted)",
                     }}
@@ -325,7 +331,7 @@ function App() {
 
                 </div>
 
-                <div className="flex gap-1 flex-wrap">
+                <div className="flex gap-1 flex-nowrap overflow-x-auto w-full sm:w-auto pb-0.5">
 
                   {[
                     "default",
@@ -339,7 +345,7 @@ function App() {
                       onClick={() =>
                         setActiveTab(tab)
                       }
-                      className="font-mono text-xs px-2.5 py-1 rounded transition-all cursor-pointer capitalize"
+                      className="font-mono text-[10px] sm:text-xs px-2 sm:px-2.5 py-1 rounded transition-all cursor-pointer capitalize whitespace-nowrap shrink-0"
                       style={{
                         background:
                           activeTab === tab
@@ -368,33 +374,40 @@ function App() {
               <div
                 className="flex items-center justify-center relative"
                 style={{
-                  minHeight: "250px",
+                  minHeight: "220px",
                   background: "var(--bg-base)",
                   backgroundImage:
                     "radial-gradient(circle, var(--border-color) 1px, transparent 1px)",
                   backgroundSize: "24px 24px",
-                  padding: "40px 20px",
+                  padding: "32px 12px",
                   overflow: "hidden",
                 }}
               >
 
                 <div
-                  className="relative flex items-center justify-center w-full"
+                  className="relative flex items-center justify-center w-full min-w-0"
                   style={{
-                    minWidth: 0,
                     overflow: "visible",
                   }}
                 >
 
                   {ButtonComponent ? (
-                    <ButtonComponent
-                      {...previewProps}
+                    <div
+                      className="flex items-center justify-center"
+                      style={{
+                        maxWidth: "100%",
+                        overflow: "visible",
+                      }}
                     >
-                      Click Me
-                    </ButtonComponent>
+                      <ButtonComponent
+                        {...previewProps}
+                      >
+                        Click Me
+                      </ButtonComponent>
+                    </div>
                   ) : (
                     <div
-                      className="font-mono text-sm px-4 py-3 rounded-lg text-center"
+                      className="font-mono text-xs sm:text-sm px-3 sm:px-4 py-3 rounded-lg text-center max-w-full break-words"
                       style={{
                         color: "var(--text-muted)",
                         border:
@@ -411,12 +424,13 @@ function App() {
                 </div>
 
               </div>
+
             </div>
 
-            <div>
+            <div className="order-3 lg:order-none">
 
               <div
-                className="font-mono text-xs uppercase tracking-widest mb-3"
+                className="font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-3"
                 style={{
                   color: "var(--text-muted)",
                 }}
@@ -424,17 +438,19 @@ function App() {
                 Use This Component
               </div>
 
-              <CodeBlock
-                code={generateCode()}
-                label={`${button.name}.jsx`}
-              />
+              <div className="w-full min-w-0">
+                <CodeBlock
+                  code={generateCode()}
+                  label={`${button.name}.jsx`}
+                />
+              </div>
 
             </div>
 
-            <div>
+            <div className="order-4 lg:order-none">
 
               <div
-                className="font-mono text-xs uppercase tracking-widest mb-3"
+                className="font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-3"
                 style={{
                   color: "var(--text-muted)",
                 }}
@@ -443,16 +459,16 @@ function App() {
               </div>
 
               <div
-                className="rounded-xl overflow-hidden"
+                className="rounded-xl overflow-hidden w-full"
                 style={{
                   border:
                     "1px solid var(--border-color)",
                 }}
               >
 
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto w-full">
 
-                  <table className="w-full text-sm">
+                  <table className="w-full min-w-[650px] text-sm">
 
                     <thead>
 
@@ -473,7 +489,7 @@ function App() {
                         ].map((heading) => (
                           <th
                             key={heading}
-                            className="text-left px-4 py-3 font-mono text-xs"
+                            className="text-left px-3 sm:px-4 py-3 font-mono text-[10px] sm:text-xs whitespace-nowrap"
                             style={{
                               color:
                                 "var(--text-muted)",
@@ -507,7 +523,7 @@ function App() {
                             >
 
                               <td
-                                className="px-4 py-3 font-mono text-xs"
+                                className="px-3 sm:px-4 py-3 font-mono text-[10px] sm:text-xs whitespace-nowrap"
                                 style={{
                                   color:
                                     "var(--brand)",
@@ -517,7 +533,7 @@ function App() {
                               </td>
 
                               <td
-                                className="px-4 py-3 font-mono text-xs"
+                                className="px-3 sm:px-4 py-3 font-mono text-[10px] sm:text-xs"
                                 style={{
                                   color: "#C084FC",
                                 }}
@@ -526,7 +542,7 @@ function App() {
                               </td>
 
                               <td
-                                className="px-4 py-3 font-mono text-xs"
+                                className="px-3 sm:px-4 py-3 font-mono text-[10px] sm:text-xs"
                                 style={{
                                   color: "#38BDF8",
                                 }}
@@ -535,7 +551,7 @@ function App() {
                               </td>
 
                               <td
-                                className="px-4 py-3 text-xs"
+                                className="px-3 sm:px-4 py-3 text-[10px] sm:text-xs leading-relaxed"
                                 style={{
                                   color:
                                     "var(--text-secondary)",
@@ -559,7 +575,7 @@ function App() {
             </div>
 
             <div
-              className="rounded-xl p-5"
+              className="order-5 lg:order-none rounded-xl p-4 sm:p-5"
               style={{
                 background: "var(--bg-surface)",
                 border:
@@ -568,7 +584,7 @@ function App() {
             >
 
               <div
-                className="font-mono text-xs uppercase tracking-widest mb-3"
+                className="font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-3"
                 style={{
                   color: "var(--text-muted)",
                 }}
@@ -577,7 +593,7 @@ function App() {
               </div>
 
               <ul
-                className="text-sm space-y-2"
+                className="text-xs sm:text-sm space-y-2"
                 style={{
                   color: "var(--text-secondary)",
                 }}
@@ -585,17 +601,22 @@ function App() {
 
                 <li className="flex items-start gap-2">
                   <span
+                    className="shrink-0"
                     style={{
                       color: "var(--brand)",
                     }}
                   >
                     →
                   </span>
-                   Choose a button based on the interaction you want.
+
+                  <span>
+                    Choose a button based on the interaction you want.
+                  </span>
                 </li>
 
                 <li className="flex items-start gap-2">
                   <span
+                    className="shrink-0"
                     style={{
                       color: "var(--brand)",
                     }}
@@ -603,11 +624,14 @@ function App() {
                     →
                   </span>
 
-                  Use props to customize colors, dimensions, radius, and effects.
+                  <span>
+                    Use props to customize colors, dimensions, radius, and effects.
+                  </span>
                 </li>
 
                 <li className="flex items-start gap-2">
                   <span
+                    className="shrink-0"
                     style={{
                       color: "var(--brand)",
                     }}
@@ -615,11 +639,14 @@ function App() {
                     →
                   </span>
 
-                  Add onClick and other React handlers for custom actions.
+                  <span>
+                    Add onClick and other React handlers for custom actions.
+                  </span>
                 </li>
-                <li className="flex items-start gap-2">
 
+                <li className="flex items-start gap-2">
                   <span
+                    className="shrink-0"
                     style={{
                       color: "var(--brand)",
                     }}
@@ -627,7 +654,9 @@ function App() {
                     →
                   </span>
 
-                  Combine multiple buttons to create richer interfaces.
+                  <span>
+                    Combine multiple buttons to create richer interfaces.
+                  </span>
                 </li>
 
               </ul>
@@ -636,10 +665,10 @@ function App() {
 
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="order-2 lg:order-none lg:col-span-2 min-w-0">
 
             <div
-              className="sticky top-24 rounded-xl overflow-hidden"
+              className="lg:sticky lg:top-24 rounded-xl overflow-hidden w-full"
               style={{
                 border:
                   "1px solid var(--border-color)",
@@ -647,7 +676,7 @@ function App() {
             >
 
               <div
-                className="px-5 py-4"
+                className="px-4 sm:px-5 py-4"
                 style={{
                   borderBottom:
                     "1px solid var(--border-color)",
@@ -657,7 +686,7 @@ function App() {
               >
 
                 <span
-                  className="font-mono text-xs uppercase tracking-widest"
+                  className="font-mono text-[10px] sm:text-xs uppercase tracking-widest"
                   style={{
                     color: "var(--text-muted)",
                   }}
@@ -668,7 +697,7 @@ function App() {
               </div>
 
               <div
-                className="p-5 space-y-6"
+                className="p-4 sm:p-5 space-y-5 sm:space-y-6"
                 style={{
                   background: "var(--bg-card)",
                 }}
@@ -677,10 +706,10 @@ function App() {
                 {hasColor && (
                   <div>
 
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between gap-3 mb-2">
 
                       <label
-                        className="font-mono text-xs uppercase tracking-wide"
+                        className="font-mono text-[10px] sm:text-xs uppercase tracking-wide"
                         style={{
                           color:
                             "var(--text-muted)",
@@ -690,7 +719,7 @@ function App() {
                       </label>
 
                       <span
-                        className="font-mono text-xs"
+                        className="font-mono text-[10px] sm:text-xs truncate"
                         style={{
                           color:
                             "var(--text-secondary)",
@@ -711,7 +740,7 @@ function App() {
                             event.target.value
                           )
                         }
-                        className="w-10 h-10 rounded-lg cursor-pointer border-0"
+                        className="w-10 h-10 rounded-lg cursor-pointer border-0 shrink-0"
                         style={{
                           background: "none",
                         }}
@@ -725,7 +754,7 @@ function App() {
                             event.target.value
                           )
                         }
-                        className="flex-1 px-3 py-2 rounded-lg font-mono text-xs outline-none"
+                        className="min-w-0 flex-1 px-3 py-2 rounded-lg font-mono text-xs outline-none"
                         style={{
                           background:
                             "var(--bg-surface)",
@@ -794,10 +823,10 @@ function App() {
                 )}
 
                 {hasDisabled && (
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-4">
 
                     <label
-                      className="font-mono text-xs uppercase tracking-wide"
+                      className="font-mono text-[10px] sm:text-xs uppercase tracking-wide"
                       style={{
                         color:
                           "var(--text-muted)",
@@ -813,7 +842,7 @@ function App() {
                           (previous) => !previous
                         )
                       }
-                      className="relative w-10 h-5 rounded-full transition-all duration-200 cursor-pointer"
+                      className="relative w-10 h-5 rounded-full transition-all duration-200 cursor-pointer shrink-0"
                       style={{
                         background: disabled
                           ? "var(--brand)"
@@ -848,10 +877,10 @@ function App() {
         </div>
 
         {related.length > 0 && (
-          <div className="mt-16">
+          <div className="mt-12 sm:mt-16">
 
             <div
-              className="font-mono text-xs uppercase tracking-widest mb-6"
+              className="font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-5 sm:mb-6"
               style={{
                 color: "var(--text-muted)",
               }}
@@ -865,9 +894,10 @@ function App() {
               >
                 {button.category}
               </span>
+
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
 
               {related.map((relatedButton) => (
                 <ComponentCard
@@ -899,12 +929,12 @@ function Slider({
     ((value - min) / (max - min)) * 100;
 
   return (
-    <div>
+    <div className="w-full min-w-0">
 
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between gap-3 mb-2">
 
         <label
-          className="font-mono text-xs uppercase tracking-wide"
+          className="font-mono text-[10px] sm:text-xs uppercase tracking-wide"
           style={{
             color: "var(--text-muted)",
           }}
@@ -913,7 +943,7 @@ function Slider({
         </label>
 
         <span
-          className="font-mono text-xs"
+          className="font-mono text-[10px] sm:text-xs shrink-0"
           style={{
             color:
               "var(--text-secondary)",

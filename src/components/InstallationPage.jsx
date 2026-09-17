@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import CodeBlock from "./CodeBlock";
 
 export default function InstallationPage() {
@@ -10,7 +11,7 @@ export default function InstallationPage() {
     yarn: "yarn add button-adda",
   };
 
-const quickStart = `import { FireButton } from "button-adda";
+  const quickStart = `import { FireButton } from "button-adda";
 
 function App() {
   return (
@@ -32,18 +33,17 @@ function App() {
   );
 }`;
 
-const componentImport = `import { FireButton } from "button-adda";`;
+  const componentImport = `import { FireButton } from "button-adda";`;
 
   return (
     <div
-      className="min-h-screen py-16 px-6"
+      className="min-h-screen py-10 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6"
       style={{
         background: "var(--bg-base)",
       }}
     >
-      <div className="max-w-3xl mx-auto">
-
-        <div className="mb-12">
+      <div className="w-full max-w-3xl mx-auto">
+        <div className="mb-8 sm:mb-10 md:mb-12">
           <div
             className="font-mono text-xs uppercase tracking-widest mb-3"
             style={{
@@ -54,7 +54,7 @@ const componentImport = `import { FireButton } from "button-adda";`;
           </div>
 
           <h1
-            className="font-display font-700 text-4xl md:text-5xl mb-4 leading-tight"
+            className="font-display font-700 text-3xl sm:text-4xl md:text-5xl mb-4 leading-tight"
             style={{
               color: "var(--text-primary)",
             }}
@@ -63,7 +63,7 @@ const componentImport = `import { FireButton } from "button-adda";`;
           </h1>
 
           <p
-            className="text-lg"
+            className="text-base sm:text-lg"
             style={{
               color: "var(--text-secondary)",
             }}
@@ -72,51 +72,46 @@ const componentImport = `import { FireButton } from "button-adda";`;
           </p>
         </div>
 
-        <div className="space-y-12">
-
+        <div className="space-y-8 sm:space-y-10 md:space-y-12">
           <section>
             <SectionLabel>
               01 — Install
             </SectionLabel>
 
             <div
-              className="flex gap-1 mb-4 p-1 rounded-xl w-fit"
+              className="flex gap-1 mb-4 p-1 rounded-xl w-full sm:w-fit"
               style={{
                 background: "var(--bg-surface)",
-                border:
-                  "1px solid var(--border-color)",
+                border: "1px solid var(--border-color)",
               }}
             >
-              {["npm", "pnpm", "yarn"].map(
-                (pm) => (
-                  <button
-                    key={pm}
-                    onClick={() =>
-                      setPkgManager(pm)
-                    }
-                    className="px-5 py-2 rounded-lg font-mono text-xs uppercase transition-all duration-200 cursor-pointer"
-                    style={{
-                      background:
-                        pkgManager === pm
-                          ? "var(--brand)"
-                          : "transparent",
-
-                      color:
-                        pkgManager === pm
-                          ? "#fff"
-                          : "var(--text-secondary)",
-                    }}
-                  >
-                    {pm}
-                  </button>
-                )
-              )}
+              {["npm", "pnpm", "yarn"].map((pm) => (
+                <button
+                  key={pm}
+                  onClick={() => setPkgManager(pm)}
+                  className="flex-1 sm:flex-none px-3 sm:px-5 py-2 rounded-lg font-mono text-xs uppercase transition-all duration-200 cursor-pointer"
+                  style={{
+                    background:
+                      pkgManager === pm
+                        ? "var(--brand)"
+                        : "transparent",
+                    color:
+                      pkgManager === pm
+                        ? "#fff"
+                        : "var(--text-secondary)",
+                  }}
+                >
+                  {pm}
+                </button>
+              ))}
             </div>
 
-            <CodeBlock
-              code={installCmds[pkgManager]}
-              language="sh"
-            />
+            <div className="w-full min-w-0 overflow-hidden">
+              <CodeBlock
+                code={installCmds[pkgManager]}
+                language="sh"
+              />
+            </div>
           </section>
 
           <section>
@@ -125,7 +120,7 @@ const componentImport = `import { FireButton } from "button-adda";`;
             </SectionLabel>
 
             <p
-              className="text-sm mb-4"
+              className="text-sm mb-4 leading-relaxed"
               style={{
                 color: "var(--text-secondary)",
               }}
@@ -133,11 +128,13 @@ const componentImport = `import { FireButton } from "button-adda";`;
               Import any ButtonAdda component by name and use it directly in your React application.
             </p>
 
-            <CodeBlock
-              code={componentImport}
-              language="jsx"
-              label="App.jsx"
-            />
+            <div className="w-full min-w-0 overflow-hidden">
+              <CodeBlock
+                code={componentImport}
+                language="jsx"
+                label="App.jsx"
+              />
+            </div>
           </section>
 
           <section>
@@ -146,20 +143,21 @@ const componentImport = `import { FireButton } from "button-adda";`;
             </SectionLabel>
 
             <p
-              className="text-sm mb-4"
+              className="text-sm mb-4 leading-relaxed"
               style={{
                 color: "var(--text-secondary)",
               }}
             >
-              Customize your button with props like color, 
-              size, radius, intensity, and more.
+              Customize your button with props like color, size, radius, intensity, and more.
             </p>
 
-            <CodeBlock
-              code={quickStart}
-              language="JSX"
-              label="App.jsx"
-            />
+            <div className="w-full min-w-0 overflow-hidden">
+              <CodeBlock
+                code={quickStart}
+                language="JSX"
+                label="App.jsx"
+              />
+            </div>
           </section>
 
           <section>
@@ -196,28 +194,25 @@ const componentImport = `import { FireButton } from "button-adda";`;
               ].map(({ step, text }) => (
                 <div
                   key={step}
-                  className="flex items-center gap-4 p-4 rounded-xl"
+                  className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl"
                   style={{
                     background: "var(--bg-card)",
-                    border:
-                      "1px solid var(--border-color)",
+                    border: "1px solid var(--border-color)",
                   }}
                 >
                   <span
                     className="flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center font-mono text-xs font-600"
                     style={{
-                      background:
-                        "rgba(255,122,61,0.12)",
+                      background: "rgba(255,122,61,0.12)",
                       color: "var(--brand)",
-                      border:
-                        "1px solid rgba(255,122,61,0.2)",
+                      border: "1px solid rgba(255,122,61,0.2)",
                     }}
                   >
                     {step}
                   </span>
 
                   <span
-                    className="text-sm"
+                    className="text-sm leading-relaxed min-w-0"
                     style={{
                       color: "var(--text-secondary)",
                     }}
@@ -230,18 +225,17 @@ const componentImport = `import { FireButton } from "button-adda";`;
           </section>
 
           <section
-            className="rounded-xl p-6"
+            className="rounded-xl p-4 sm:p-5 md:p-6"
             style={{
               background: "var(--bg-surface)",
-              border:
-                "1px solid var(--border-color)",
+              border: "1px solid var(--border-color)",
             }}
           >
             <SectionLabel>
               Requirements
             </SectionLabel>
 
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 sm:gap-y-4 text-sm">
               {[
                 {
                   label: "React",
@@ -262,13 +256,14 @@ const componentImport = `import { FireButton } from "button-adda";`;
               ].map(({ label, value }) => (
                 <div
                   key={label}
-                  className="flex justify-between items-center py-2"
+                  className="flex justify-between items-center gap-3 py-2"
                   style={{
                     borderBottom:
                       "1px solid var(--border-color)",
                   }}
                 >
                   <span
+                    className="min-w-0"
                     style={{
                       color: "var(--text-muted)",
                     }}
@@ -277,10 +272,9 @@ const componentImport = `import { FireButton } from "button-adda";`;
                   </span>
 
                   <span
-                    className="font-mono text-xs"
+                    className="font-mono text-xs text-right break-words"
                     style={{
-                      color:
-                        "var(--text-secondary)",
+                      color: "var(--text-secondary)",
                     }}
                   >
                     {value}
@@ -298,13 +292,13 @@ const componentImport = `import { FireButton } from "button-adda";`;
 function SectionLabel({ children }) {
   return (
     <h2
-      className="font-display font-600 text-lg mb-4 flex items-center gap-3"
+      className="font-display font-600 text-base sm:text-lg mb-4 flex items-center gap-3"
       style={{
         color: "var(--text-primary)",
       }}
     >
       <span
-        className="w-0.5 h-5 rounded-full"
+        className="w-0.5 h-5 rounded-full flex-shrink-0"
         style={{
           background: "var(--brand)",
         }}
