@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://button-adda.netlify.app/sitemap.xml
